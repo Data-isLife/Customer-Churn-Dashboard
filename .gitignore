@@ -1,6 +1,8 @@
 *.RData
 *.Rhistory
 *.rds
+.Rproj.user/
+rsconnect/
 desktop.ini
 My Music
 My Pictures
