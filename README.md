@@ -24,5 +24,5 @@ The app uses a fixed random seed and stratified 80/20 train/test split. Cross-va
 
 The prediction form does not request total charges, so it uses `MonthlyCharges × tenure` as a simple proxy. Actual customer billing history may differ, and that approximation can affect the estimate.
 
-##Live model
+## Live model
 (https://data-islife-james-churn-random-forest.share.connect.posit.cloud/)
