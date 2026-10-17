@@ -24,53 +24,5 @@ The app uses a fixed random seed and stratified 80/20 train/test split. Cross-va
 
 The prediction form does not request total charges, so it uses `MonthlyCharges × tenure` as a simple proxy. Actual customer billing history may differ, and that approximation can affect the estimate.
 
-## Run locally
-
-Install R, then install the packages used by the app:
-
-```r
-install.packages(c(
-  "shiny", "shinydashboard", "plotly", "dplyr", "caret",
-  "data.table", "ggplot2", "randomForest", "pROC", "scales"
-))
-```
-
-Open this repository folder as the working directory in R or RStudio, then run:
-
-```r
-shiny::runApp("churn_dashboard.R")
-```
-
-The CSV must stay beside `churn_dashboard.R`. The app trains the model at startup, so the first load can take a little longer.
-
-## Deploy online with shinyapps.io
-
-This repository is prepared for deployment as a single-file Shiny app. Deployment requires your own shinyapps.io account and credentials; those are not stored in this repository.
-
-1. Create a free or paid account at [shinyapps.io](https://www.shinyapps.io/) and create an application token in its dashboard.
-2. Install and open RStudio, then install the deployment package: `install.packages("rsconnect")`.
-3. In RStudio, choose **Tools → Global Options → Publishing → Connect**, select shinyapps.io, and enter the account token and secret. Keep credentials private; do not commit them.
-4. Set the R working directory to this repository folder and run:
-
-   ```r
-   rsconnect::deployApp(appDir = ".", appPrimaryDoc = "churn_dashboard.R")
-   ```
-
-5. Wait for deployment to finish, open the URL shown by RStudio, and check that the dashboard loads and the prediction form responds.
-
-Deployment has not been performed from this repository because it needs account-specific shinyapps.io credentials and an account choice from the repository owner.
-
-## Project files
-
-| File | Purpose |
-| --- | --- |
-| `churn_dashboard.R` | Shiny interface, data preparation, model training, evaluation, charts, and prediction form. |
-| `telco_customer_churn.csv` | Included source dataset. |
-| `README.md` | Project overview, methodology, setup, and deployment guide. |
-
-## Next improvements
-
-- Add repeated cross-validation or a time-based test set to measure how stable the results are.
-- Compare the random forest with a simple baseline and report confidence intervals.
-- Replace the proxy total charges in the form with a validated billing input.
-- Add a screenshot and a live demo link after deployment.
+##Live model
+(https://data-islife-james-churn-random-forest.share.connect.posit.cloud/)
