@@ -1,6 +1,8 @@
 *.RData
 *.Rhistory
 *.rds
+!churn_model_bundle.rds
+.Rlib/
 .Rproj.user/
 rsconnect/
 desktop.ini

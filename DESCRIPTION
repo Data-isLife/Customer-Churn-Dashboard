@@ -1,0 +1,17 @@
+
+Package: CustomerChurnDashboard
+Title: Customer Churn Dashboard
+Version: 1.0.0
+Description: Interactive customer churn dashboard.
+License: MIT
+Imports:
+    shiny,
+    shinydashboard,
+    plotly,
+    dplyr,
+    caret,
+    data.table,
+    ggplot2,
+    randomForest,
+    pROC,
+    scales
