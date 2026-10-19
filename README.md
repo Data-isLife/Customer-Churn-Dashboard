@@ -43,3 +43,7 @@ The app parses `TotalCharges` as a number and removes rows where it is blank. It
 - `telco_customer_churn.csv`: included sample data.
 - `DESCRIPTION`: direct R package dependencies.
 - `renv.lock`: package versions for local setup and hosted deployment.
+
+## Live app
+
+[Open the Customer Churn dashboard](https://data-islife-james-churn-random-forest.share.connect.posit.cloud/)
