@@ -123,7 +123,11 @@ server <- function(input, output, session) {
     if (!is.null(input$contract) && input$contract != "All contracts") {
       data <- data %>% filter(Contract == input$contract)
     }
-    data %>% filter(tenure >= input$tenure[1], tenure <= input$tenure[2])
+    tenure_range <- input$tenure
+    if (is.null(tenure_range) || length(tenure_range) != 2 || any(!is.finite(tenure_range))) {
+      tenure_range <- c(0, 72)
+    }
+    data %>% filter(tenure >= tenure_range[1], tenure <= tenure_range[2])
   })
 
   output$customers_box <- renderValueBox({
@@ -173,6 +177,9 @@ server <- function(input, output, session) {
   })
   output$importance_plot <- renderPlotly({
     importance <- caret::varImp(rf_model)$importance
+    if (!"Overall" %in% names(importance)) {
+      importance$Overall <- rowMeans(importance, na.rm = TRUE)
+    }
     importance$Feature <- rownames(importance)
     p <- ggplot(importance, aes(x = reorder(Feature, Overall), y = Overall)) +
       geom_col(fill = brand_blue, width = 0.7) + coord_flip() +
