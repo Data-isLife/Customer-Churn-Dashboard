@@ -43,6 +43,7 @@ The app parses `TotalCharges` as a number and removes rows where it is blank. It
 - `telco_customer_churn.csv`: included sample data.
 - `DESCRIPTION`: direct R package dependencies.
 - `renv.lock`: package versions for local setup and hosted deployment.
+- `.rscignore`: keeps the local development library out of deployment bundles.
 
 ## Live app
 
